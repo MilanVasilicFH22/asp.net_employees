@@ -1,0 +1,21 @@
+﻿@model EmployeeManagement.Models.Employee
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+</head>
+<body>
+    <h1>Employee Details</h1>
+    <div>
+        <label>ID:</label> @Model.ID
+    </div>
+    <div>
+        <label>Prename:</label> @Model.Prename
+    </div>
+    <div>
+        <label>Lastname:</label> @Model.Lastname
+    </div>
+    <a href="@Url.Action("Index")">Back to List</a>
+</body>
+</html>

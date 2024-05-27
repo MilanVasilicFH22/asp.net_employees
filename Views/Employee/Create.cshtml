@@ -1,0 +1,24 @@
+﻿@model EmployeeManagement.Models.Employee
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Employee</title>
+</head>
+<body>
+    <h1>Create Employee</h1>
+    <form asp-action="Create" method="post">
+        <div>
+            <label for="Prename">Prename</label>
+            <input type="text" id="Prename" name="Prename" value="@Model.Prename" />
+        </div>
+        <div>
+            <label for="Lastname">Lastname</label>
+            <input type="text" id="Lastname" name="Lastname" value="@Model.Lastname" />
+        </div>
+        <div>
+            <input type="submit" value="Create" />
+        </div>
+    </form>
+</body>
+</html>
