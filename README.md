@@ -1,88 +1,66 @@
-Employee Management System
-Overview
-This project is an Employee Management System built using ASP.NET Core MVC and Entity Framework Core. It provides basic CRUD (Create, Read, Update, Delete) functionalities to manage employee records.
+# Employee Management System File Descriptions
 
-Table of Contents
-Prerequisites
-Installation
-Configuration
-Usage
-Project Structure
-Contributing
-License
-Prerequisites
-.NET 6.0 SDK
-Entity Framework Core
-A database system (SQLite is used in this project)
-Installation
-Clone the repository:
+## Controllers
 
-bash
-Code kopieren
-git clone https://github.com/your-username/employee-management-system.git
-cd employee-management-system
-Restore the dependencies:
+### HomeController.cs
+- **Namespace**: `EmployeeManagement.Controllers`
+- **Purpose**: Handles requests for the home and error pages.
+- **Key Methods**:
+  - `Index()`: Returns the home page view.
+  - `Privacy()`: Returns the privacy policy page view.
+  - `Error()`: Returns the error page view with error details.
 
-bash
-Code kopieren
-dotnet restore
-Update the database:
+### EmployeeController.cs
+- **Namespace**: `EmployeeManagement.Controllers`
+- **Purpose**: Manages CRUD operations for employees.
+- **Key Methods**:
+  - `Index()`: Retrieves and displays a list of all employees.
+  - `Delete(int id)`: Deletes an employee by ID.
+  - `Create() [GET]`: Returns the view for creating a new employee.
+  - `Create(Employee employee) [POST]`: Handles the form submission for creating a new employee.
 
-bash
-Code kopieren
-dotnet ef database update
-Run the application:
+## Models
 
-bash
-Code kopieren
-dotnet run
-Configuration
-The application uses an appsettings.json file for configuration settings. Below is the configuration used for database connection and logging:
+### Employee.cs
+- **Namespace**: `EmployeeManagement.Models`
+- **Purpose**: Defines the Employee entity.
+- **Properties**:
+  - `int ID`: The unique identifier for an employee.
+  - `string Prename`: The first name of an employee.
+  - `string Lastname`: The last name of an employee.
 
-json
-Code kopieren
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*",
-  "ConnectionStrings": {
-    "EmployeeContext": "Data Source=test1.db"
-  }
-}
-Ensure you have the correct connection string for your database.
+### ErrorViewModel.cs
+- **Namespace**: `EmployeeManagement.Models`
+- **Purpose**: Model for error handling.
+- **Properties**:
+  - `string? RequestId`: The request identifier.
+  - `bool ShowRequestId`: Indicates whether the request identifier should be shown.
 
-Usage
-After running the application, you can perform the following actions through the web interface:
+## Data
 
-View Employees: Navigate to /Employee to see the list of all employees.
-Add Employee: Click on "Create New" to add a new employee.
-Edit Employee: Click on "Edit" next to an employee to update their details.
-Delete Employee: Click on "Delete" next to an employee to remove them.
-Project Structure
-Controllers
+### EmployeeContext.cs
+- **Namespace**: `EmployeeManagement.Data`
+- **Purpose**: Database context for managing employee data using Entity Framework Core.
+- **Key Components**:
+  - `DbSet<Employee> Employees`: Represents the Employees table in the database.
+  - `OnModelCreating(ModelBuilder modelBuilder)`: Configures the model and maps the `Employee` entity to the `Employee` table.
 
-HomeController.cs: Handles requests for the home and error pages.
-EmployeeController.cs: Manages CRUD operations for employees.
-Models
+## Configuration
 
-Employee.cs: Defines the Employee entity.
-ErrorViewModel.cs: Model for error handling.
-Data
+### appsettings.json
+- **Purpose**: Configuration file for logging and database connections.
+- **Key Sections**:
+  - `Logging`: Configuration for logging levels.
+  - `AllowedHosts`: Specifies the hosts allowed to access the application.
+  - `ConnectionStrings`: Contains the connection string for the `EmployeeContext` database.
 
-EmployeeContext.cs: Database context for managing employee data using Entity Framework Core.
-Views
+## Views
 
-Home
-Index.cshtml: Home page view.
-Privacy.cshtml: Privacy policy page view.
-Employee
-Index.cshtml: View for listing all employees.
-Create.cshtml: Form for creating a new employee.
-Details.cshtml: View for displaying employee details.
-Configuration
+### index.cshtml
+- **Purpose**: View for listing all employees.
 
-appsettings.json: Configuration file for logging and database connections.
+### Create.cshtml
+- **Purpose**: View for creating a new employee.
+
+### Details.cshtml
+- **Purpose**: View for displaying employee details.
