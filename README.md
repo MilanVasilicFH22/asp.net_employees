@@ -1,5 +1,35 @@
 # Employee Management System File Descriptions
 
+## Overview Basics
+This is an ASP.NET Core Web Application built using the Model View Controller (MVC) design pattern. It provides functionalities for managing employee data, including creating, reading, updating, and deleting employee records.
+
+Start in Visual Basic an ASP.NET Core Web Application (Model View Controller) Project.
+
+## Supported Platforms
+
+The application supports the following platforms:
+
+- C#
+- Linux
+- macOS
+- Windows
+- Cloud
+- Dienst
+- Web
+
+## Database
+
+The application uses SQLite as its database system. The configuration for the database connection can be found in the `appsettings.json` file. By default, the connection string is set to use a local SQLite database file named `test1.db`.
+
+## Testing
+
+The application includes unit tests for the `Person` class, ensuring its methods and properties function correctly. The tests are written using the `unittest` framework and are located in the `test_person.py` file. These tests cover the following functionalities:
+
+- Initialization of a `Person` object.
+- Retrieval of the forename and surname.
+- Celebration of a birthday, which increments the age.
+- Adding job titles to the `jobs` list.
+
 ## Controllers
 
 ### HomeController.cs
