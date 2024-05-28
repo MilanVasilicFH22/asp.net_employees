@@ -1,24 +1,29 @@
 ﻿@model EmployeeManagement.Models.Employee
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Employee</title>
-</head>
-<body>
-    <h1>Create Employee</h1>
-    <form asp-action="Create" method="post">
-        <div>
-            <label for="Prename">Prename</label>
-            <input type="text" id="Prename" name="Prename" value="@Model.Prename" />
-        </div>
-        <div>
-            <label for="Lastname">Lastname</label>
-            <input type="text" id="Lastname" name="Lastname" value="@Model.Lastname" />
-        </div>
-        <div>
-            <input type="submit" value="Create" />
-        </div>
-    </form>
-</body>
-</html>
+<h2>Create New Employee</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Prename" class="control-label"></label>
+        <input asp-for="Prename" class="form-control" />
+        <span asp-validation-for="Prename" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lastname" class="control-label"></label>
+        <input asp-for="Lastname" class="form-control" />
+        <span asp-validation-for="Lastname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
